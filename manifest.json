@@ -1,0 +1,21 @@
+{
+  "name": "institutional-menu",
+  "vendor": "gocommerce",
+  "version": "0.1.0",
+  "title": "Institutional Menu",
+  "description": "Auto generate a menu for custom pages",
+  "mustUpdateAt": "2020-07-23",
+  "scripts": {
+    "postreleasy": "vtex publish"
+  },
+  "dependencies": {
+    "vtex.store-graphql": "2.x",
+    "vtex.menu": "2.x"
+  },
+  "builders": {
+    "react": "3.x",
+    "store": "0.x",
+    "messages": "1.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
