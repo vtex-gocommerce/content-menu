@@ -3,8 +3,7 @@ import { Query } from 'react-apollo'
 import { defineMessages } from 'react-intl'
 
 import { Link } from 'vtex.render-runtime'
-// @ts-ignore
-import { Menu } from 'vtex.menu'
+import { Menu, MenuSchema } from 'vtex.menu'
 
 import ROUTES_QUERY from './graphql/routes.graphql'
 
@@ -22,7 +21,7 @@ const messages = defineMessages({
   },
 })
 
-const InstitutionalMenu = (props: any) => (
+const InstitutionalMenu: StorefrontFunctionComponent<MenuSchema> = (props: any) => (
   <Query query={ROUTES_QUERY} variables={{ domain: 'store' }}>
     {({ data, loading, error }: any) => {
       if (error || loading) {
