@@ -3,6 +3,8 @@ import { Query } from 'react-apollo'
 import { defineMessages } from 'react-intl'
 
 import { Link } from 'vtex.render-runtime'
+// @ts-ignore
+import { Menu } from 'vtex.menu'
 
 import ROUTES_QUERY from './graphql/routes.graphql'
 
@@ -16,11 +18,11 @@ interface Route {
 const messages = defineMessages({
   menuTitle: {
     defaultMessage: '',
-    id: 'admin/editor.future-menu.title',
+    id: 'admin/editor.content-menu.title',
   },
 })
 
-const InstitutionalMenu = () => (
+const InstitutionalMenu = (props: any) => (
   <Query query={ROUTES_QUERY} variables={{ domain: 'store' }}>
     {({ data, loading, error }: any) => {
       if (error || loading) {
@@ -31,8 +33,9 @@ const InstitutionalMenu = () => (
       const pagesRoutes = (data.routes || [])
         .filter((route: Route) => (route.context || '').endsWith('ContentPageContext'))
 
+
       return (
-        <nav>
+        <Menu { ...props }>
           {pagesRoutes.map((route: Route) => (
             <div className=" mh6 pv2">
               <Link
@@ -44,8 +47,8 @@ const InstitutionalMenu = () => (
               </Link>
             </div>
           ))}
-        </nav>
-      )        
+        </Menu>
+      )
     }}
   </Query>
 )
