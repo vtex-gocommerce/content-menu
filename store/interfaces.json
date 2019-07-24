@@ -1,5 +1,5 @@
 {
-  "menu.institutional": {
-    "component": "InstitutionalMenu"
+  "menu.content": {
+    "component": "ContentMenu"
   }
 }

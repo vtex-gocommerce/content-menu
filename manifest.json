@@ -1,8 +1,8 @@
 {
-  "name": "institutional-menu",
+  "name": "content-menu",
   "vendor": "gocommerce",
   "version": "0.1.0",
-  "title": "Institutional Menu",
+  "title": "Content Pages Menu",
   "description": "Auto generate a menu for custom pages",
   "mustUpdateAt": "2020-07-23",
   "scripts": {
