@@ -31,5 +31,6 @@ declare module 'vtex.menu' {
     blockClass?: string
   }
 
-  export const Menu: ReactType  
+  export const Menu: ReactType
+  export const MenuItem: ReactType
 }

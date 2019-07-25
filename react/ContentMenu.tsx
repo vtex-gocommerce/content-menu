@@ -2,10 +2,8 @@ import * as React from 'react'
 import { Query } from 'react-apollo'
 import { defineMessages } from 'react-intl'
 
-import { Link } from 'vtex.render-runtime'
-import { Menu, MenuSchema } from 'vtex.menu'
-
 import ROUTES_QUERY from './graphql/routes.graphql'
+import { Menu, MenuItem, MenuSchema } from 'vtex.menu'
 
 interface Route {
   context: string | null
@@ -21,7 +19,7 @@ const messages = defineMessages({
   },
 })
 
-const InstitutionalMenu: StorefrontFunctionComponent<MenuSchema> = (props: any) => (
+const ContentMenu: StorefrontFunctionComponent<MenuSchema> = props => (
   <Query query={ROUTES_QUERY} variables={{ domain: 'store' }}>
     {({ data, loading, error }: any) => {
       if (error || loading) {
@@ -32,19 +30,24 @@ const InstitutionalMenu: StorefrontFunctionComponent<MenuSchema> = (props: any) 
       const pagesRoutes = (data.routes || [])
         .filter((route: Route) => (route.context || '').endsWith('ContentPageContext'))
 
-
       return (
-        <Menu { ...props }>
-          {pagesRoutes.map((route: Route) => (
-            <div className=" mh6 pv2">
-              <Link
-                className={'no-underline pointer t-body c-on-base pointer'}
-                key={route.routeId}
-                to={route.path}
-              >
-                {route.title}
-              </Link>
-            </div>
+        <Menu
+          {...props}
+          orientation={'vertical'}
+        >
+          {pagesRoutes.map(({ title, path, routeId }: Route) => (
+            <MenuItem
+              id={routeId}
+              type={'custom'}
+              highlight={false}
+              itemProps={{
+                type: 'internal',
+                text: title,
+                noFollow: false,
+                tagTitle: title,
+                href: path,
+              }}
+            />
           ))}
         </Menu>
       )
@@ -52,8 +55,8 @@ const InstitutionalMenu: StorefrontFunctionComponent<MenuSchema> = (props: any) 
   </Query>
 )
 
-InstitutionalMenu.getSchema = () => ({
+ContentMenu.getSchema = () => ({
   title: messages.menuTitle.id,
 })
 
-export default InstitutionalMenu
+export default ContentMenu
