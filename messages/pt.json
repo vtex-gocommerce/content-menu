@@ -1,3 +1,5 @@
 {
-  "admin/editor.content-menu.title": "Menu institucional"
+  "admin/editor.content-menu.title": "Menu institucional",
+  "admin/editor.content-menu.item.visible.title": "Visível",
+  "admin/editor.content-menu.item.label.title": "Título"
 }
