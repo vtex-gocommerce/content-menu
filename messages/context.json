@@ -1,5 +1,6 @@
 {
   "admin/editor.content-menu.title": "admin/editor.content-menu.title",
   "admin/editor.content-menu.item.visible.title": "admin/editor.content-menu.item.visible.title",
-  "admin/editor.content-menu.item.label.title": "admin/editor.content-menu.item.lavel.title"
+  "admin/editor.content-menu.item.label.title": "admin/editor.content-menu.item.lavel.title",
+  "admin/editor.content-menu.item.highlight.title": "admin/editor.content-menu.item.highlight.title"
 }

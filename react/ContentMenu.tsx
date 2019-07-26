@@ -15,6 +15,7 @@ interface Route {
 interface MenuSchema {
   visible: boolean
   label: string | null
+  highlight: boolean
 }
 
 const messages = defineMessages({
@@ -24,7 +25,7 @@ const messages = defineMessages({
   },
 })
 
-const ContentMenu: StorefrontFunctionComponent<MenuSchema> = ({ visible, label }) => {
+const ContentMenu: StorefrontFunctionComponent<MenuSchema> = ({ visible, label, highlight }) => {
   if (!visible) { return null }
 
   return (
@@ -44,7 +45,7 @@ const ContentMenu: StorefrontFunctionComponent<MenuSchema> = ({ visible, label }
               title: {
                 id: '',
                 type: 'custom',
-                highlight: false,
+                highlight: highlight,
                 itemProps: {
                   text: label,
                   type: 'internal',

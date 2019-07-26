@@ -13,6 +13,10 @@
           "title": "admin/editor.content-menu.item.label.title",
           "type": "string",
           "nullable": true
+        },
+        "highlight": {
+          "title": "admin/editor.content-menu.item.highlight.title",
+          "type": "boolean"
         }
       }
     }

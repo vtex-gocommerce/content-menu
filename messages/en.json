@@ -1,5 +1,6 @@
 {
   "admin/editor.content-menu.title": "Content menu",
   "admin/editor.content-menu.item.visible.title": "Visible",
-  "admin/editor.content-menu.item.label.title": "Label"
+  "admin/editor.content-menu.item.label.title": "Label",
+  "admin/editor.content-menu.item.highlight.title": "Highlight"
 }
