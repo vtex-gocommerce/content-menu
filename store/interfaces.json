@@ -1,5 +1,20 @@
 {
   "menu.content": {
-    "component": "ContentMenu"
+    "component": "ContentMenu",
+    "content": {
+      "type": "object",
+      "properties": {
+        "visible": {
+          "title": "admin/editor.content-menu.item.visible.title",
+          "type": "boolean",
+          "default": true
+        },
+        "label": {
+          "title": "admin/editor.content-menu.item.label.title",
+          "type": "string",
+          "nullable": true
+        }
+      }
+    }
   }
 }
