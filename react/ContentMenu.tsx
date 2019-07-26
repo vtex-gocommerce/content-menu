@@ -31,14 +31,13 @@ const ContentMenu: StorefrontFunctionComponent<MenuSchema> = ({ visible, label, 
   return (
     <Query query={ROUTES_QUERY} variables={{ domain: 'store' }}>
       {({ data, loading, error }: any) => {
-        if (error || loading) {
-          // TODO add loader and error message
-          return null
-        }
+        if (error || loading) { return null }
 
         const pagesRoutes = (data.routes || [])
           .filter((route: Route) => (route.context || '').endsWith('ContentPageContext'))
 
+        if (!pagesRoutes.length) { return null }
+        
         return (
           <Menu
             {...(label && {
